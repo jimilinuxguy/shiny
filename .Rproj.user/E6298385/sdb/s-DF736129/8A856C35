@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "input[type=\"number\"] {\n  max-width: 80%;\n}\n\ndiv.outer {\n  position: fixed;\n  top: 41px;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  overflow: hidden;\n  padding: 0;\n}\n\n/* Customize fonts */\nbody, label, input, button, select { \n  font-family: 'Helvetica Neue', Helvetica;\n  font-weight: 200;\n}\nh1, h2, h3, h4 { font-weight: 400; }\n\n#controls {\n  /* Appearance */\n  background-color: white;\n  padding: 0 20px 20px 20px;\n  cursor: move;\n  /* Fade out while not hovering */\n  opacity: 0.65;\n  zoom: 0.9;\n  transition: opacity 500ms 1s;\n}\n#controls:hover {\n  /* Fade in while hovering */\n  opacity: 0.95;\n  transition-delay: 0;\n}\n\n/* Position and style citation */\n#cite {\n  position: absolute;\n  bottom: 10px;\n  left: 10px;\n  font-size: 12px;\n}\n\n/* If not using map tiles, show a white background */\n.leaflet-container {\n  background-color: white !important;\n}",
+    "created" : 1482257935136.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "765602825",
+    "id" : "8A856C35",
+    "lastKnownWriteTime" : 1481560525,
+    "last_content_update" : 1481560525,
+    "path" : "~/coursera/shinyproject/styles.css",
+    "project_path" : "styles.css",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "css"
+}

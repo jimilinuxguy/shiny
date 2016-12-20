@@ -1,3 +1,27 @@
+<style>
+
+/* slide titles */
+.reveal h3 { 
+  font-size: 100px;
+  color: red;
+}
+
+/* heading for slides with two hashes ## */
+.reveal .slides section .slideContent h2 {
+   font-size: 40px;
+   font-weight: bold;
+   color: green;
+}
+
+/* ordered and unordered list styles */
+.reveal ul, 
+.reveal ol {
+    font-size: 50px;
+    color: red;
+    list-style-type: square;
+}
+
+</style>
 Course Project: Shiny Application and Reproducible Pitch
 ========================================================
 author: Jimi Sanchez
@@ -9,7 +33,7 @@ Overview
 
 The app developed for the first part of the assignment demo is avalilable at: https://jimisanchez.shinyapps.io/shinyproject/
 
-Source code for ui.R and server.R files are available on the GitHub repo: https://github.com/b33lie/shiny_app_mtcars/
+Source code for ui.R and server.R files are available on the GitHub repo: https://github.com/jimilinuxguy/shiny
 
 Tabular zipcode data
 ========================================================
@@ -41,9 +65,18 @@ cleantable <- allzips %>%
 summary(cleantable)
 ```
 
-Knitr
+Historgram Plot of Score
 ========================================================
 
 ```{r, echo=FALSE}
-knitr::kable(cleantable)
+library(lattice)
+hist(plot = TRUE, allzips$centile, breaks = 20)
+```
+
+Historgram Plot of Adult Population
+========================================================
+
+```{r, echo=FALSE}
+library(lattice)
+hist(plot = TRUE, allzips$adultpop, breaks = 20)
 ```
