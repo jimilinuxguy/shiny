@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(leaflet)\n\ngetdeps <- function() {\n  htmltools::attachDependencies(\n    htmltools::tagList(),\n    c(\n      htmlwidgets:::getDependency(\"datatables\",\"DT\")\n    )\n  )\n}\n\nnavbarPage(\"Jimi Sanchez\", id=\"nav\",\n           tabPanel(\"Data explorer\",\n                    fluidRow(\n                      column(3,\n                             selectInput(\"states\", \"States\", c(\"All states\"=\"\", structure(state.abb, names=state.name), \"Washington, DC\"=\"DC\"), multiple=TRUE)\n                      ),\n                      column(3,\n                             conditionalPanel(\"input.states\",\n                                              selectInput(\"cities\", \"Cities\", c(\"All cities\"=\"\"), multiple=TRUE)\n                             )\n                      ),\n                      column(3,\n                             conditionalPanel(\"input.states\",\n                                              selectInput(\"zipcodes\", \"Zipcodes\", c(\"All zipcodes\"=\"\"), multiple=TRUE)\n                             )\n                      )\n                    ),\n                    fluidRow(\n                      column(1,\n                             numericInput(\"minScore\", \"Min score\", min=0, max=100, value=0)\n                      ),\n                      column(1,\n                             numericInput(\"maxScore\", \"Max score\", min=0, max=100, value=100)\n                      )\n                    ),\n                    hr(),\n                    DT::dataTableOutput(\"ziptable\")\n           ),\n           tabPanel(\"Documentation\", uiOutput(\"page3\"), getdeps()),\n           \n           conditionalPanel(\"false\", icon(\"crosshair\"))\n)",
+    "created" : 1481559745848.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "204796411",
+    "id" : "D6B741E0",
+    "lastKnownWriteTime" : 1482257470,
+    "last_content_update" : 1482257470562,
+    "path" : "~/coursera/shinyproject/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

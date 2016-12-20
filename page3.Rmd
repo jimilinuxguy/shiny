@@ -1,0 +1,12 @@
+---
+title: "page3"
+output: html_document
+---
+# SuperZip
+Play with the SuperZip tool by changing the input values in the select menus and text input fields and watch the various
+plots and maps respond to the interactions.
+
+
+# Raw Data
+You can play with the raw data in tabular form by clicking on the Data Explorer tab.
+

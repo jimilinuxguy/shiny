@@ -1,0 +1,49 @@
+Course Project: Shiny Application and Reproducible Pitch
+========================================================
+author: Jimi Sanchez
+date: Tuesday December 20 2016
+autosize: true
+
+Overview
+========================================================
+
+The app developed for the first part of the assignment demo is avalilable at: https://jimisanchez.shinyapps.io/shinyproject/
+
+Source code for ui.R and server.R files are available on the GitHub repo: https://github.com/b33lie/shiny_app_mtcars/
+
+Tabular zipcode data
+========================================================
+
+```{r, echo=FALSE}
+library(dplyr)
+
+allzips <- readRDS("data/superzip.rds")
+allzips$latitude <- jitter(allzips$latitude)
+allzips$longitude <- jitter(allzips$longitude)
+allzips$college <- allzips$college * 100
+allzips$zipcode <- formatC(allzips$zipcode, width=5, format="d", flag="0")
+row.names(allzips) <- allzips$zipcode
+
+cleantable <- allzips %>%
+  select(
+    City = city.x,
+    State = state.x,
+    Zipcode = zipcode,
+    Rank = rank,
+    Score = centile,
+    Superzip = superzip,
+    Population = adultpop,
+    College = college,
+    Income = income,
+    Lat = latitude,
+    Long = longitude
+  )
+summary(cleantable)
+```
+
+Knitr
+========================================================
+
+```{r, echo=FALSE}
+knitr::kable(cleantable)
+```

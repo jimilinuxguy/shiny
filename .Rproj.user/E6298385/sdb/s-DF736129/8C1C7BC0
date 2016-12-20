@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1482256590187.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "8C1C7BC0",
+    "lastKnownWriteTime" : 123149597212676,
+    "last_content_update" : 1482256590187,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "5C47D272",
+        "caption" : "cleantable",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=cleantable&cache_key=5C47D272",
+        "displayedObservations" : 31713,
+        "environment" : "",
+        "object" : "cleantable",
+        "preview" : 0,
+        "totalObservations" : 31713,
+        "variables" : 11
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

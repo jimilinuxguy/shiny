@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"page3\"\noutput: html_document\n---\n# SuperZip\nPlay with the SuperZip tool by changing the input values in the select menus and text input fields and watch the various\nplots and maps respond to the interactions.\n\n\n# Raw Data\nYou can play with the raw data in tabular form by clicking on the Data Explorer tab.\n\n",
+    "created" : 1481561511207.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3866420112",
+    "id" : "A154C67B",
+    "lastKnownWriteTime" : 1481562380,
+    "last_content_update" : 1481562380842,
+    "path" : "~/coursera/shinyproject/page3.Rmd",
+    "project_path" : "page3.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

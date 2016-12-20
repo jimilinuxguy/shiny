@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "Course Project: Shiny Application and Reproducible Pitch\n========================================================\nauthor: Jimi Sanchez\ndate: Tuesday December 20 2016\nautosize: true\n\nOverview\n========================================================\n\nThe app developed for the first part of the assignment demo is avalilable at: https://jimisanchez.shinyapps.io/shinyproject/\n\nSource code for ui.R and server.R files are available on the GitHub repo: https://github.com/b33lie/shiny_app_mtcars/\n\nTabular zipcode data\n========================================================\n\n```{r, echo=FALSE}\nlibrary(dplyr)\n\nallzips <- readRDS(\"data/superzip.rds\")\nallzips$latitude <- jitter(allzips$latitude)\nallzips$longitude <- jitter(allzips$longitude)\nallzips$college <- allzips$college * 100\nallzips$zipcode <- formatC(allzips$zipcode, width=5, format=\"d\", flag=\"0\")\nrow.names(allzips) <- allzips$zipcode\n\ncleantable <- allzips %>%\n  select(\n    City = city.x,\n    State = state.x,\n    Zipcode = zipcode,\n    Rank = rank,\n    Score = centile,\n    Superzip = superzip,\n    Population = adultpop,\n    College = college,\n    Income = income,\n    Lat = latitude,\n    Long = longitude\n  )\nsummary(cleantable)\n```\n\nKnitr\n========================================================\n\n```{r, echo=FALSE}\nknitr::kable(cleantable)\n```\n",
+    "created" : 1482253203021.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2758178774",
+    "id" : "EFAD5E5C",
+    "lastKnownWriteTime" : 1482257315,
+    "last_content_update" : 1482257315108,
+    "path" : "~/coursera/shinyproject/presentation.Rpres",
+    "project_path" : "presentation.Rpres",
+    "properties" : {
+        "docOutlineVisible" : "1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_presentation"
+}

@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(leaflet)\nlibrary(RColorBrewer)\nlibrary(scales)\nlibrary(lattice)\nlibrary(dplyr)\n\n# Leaflet bindings are a bit slow; for now we'll just sample to compensate\nset.seed(100)\nzipdata <- allzips[sample.int(nrow(allzips), 10000),]\n# By ordering by centile, we ensure that the (comparatively rare) SuperZIPs\n# will be drawn last and thus be easier to see\nzipdata <- zipdata[order(zipdata$centile),]\n\nfunction(input, output, session) {\n  \n  \n  \n  ## Data Explorer ###########################################\n  \n  observe({\n    cities <- if (is.null(input$states)) character(0) else {\n      filter(cleantable, State %in% input$states) %>%\n        `$`('City') %>%\n        unique() %>%\n        sort()\n    }\n    stillSelected <- isolate(input$cities[input$cities %in% cities])\n    updateSelectInput(session, \"cities\", choices = cities,\n                      selected = stillSelected)\n  })\n  \n  observe({\n    zipcodes <- if (is.null(input$states)) character(0) else {\n      cleantable %>%\n        filter(State %in% input$states,\n               is.null(input$cities) | City %in% input$cities) %>%\n        `$`('Zipcode') %>%\n        unique() %>%\n        sort()\n    }\n    stillSelected <- isolate(input$zipcodes[input$zipcodes %in% zipcodes])\n    updateSelectInput(session, \"zipcodes\", choices = zipcodes,\n                      selected = stillSelected)\n  })\n  \n  observe({\n    if (is.null(input$goto))\n      return()\n    isolate({\n      map <- leafletProxy(\"map\")\n      map %>% clearPopups()\n      dist <- 0.5\n      zip <- input$goto$zip\n      lat <- input$goto$lat\n      lng <- input$goto$lng\n      showZipcodePopup(zip, lat, lng)\n      map %>% fitBounds(lng - dist, lat - dist, lng + dist, lat + dist)\n    })\n  })\n  \n  output$ziptable <- DT::renderDataTable({\n    df <- cleantable %>%\n      filter(\n        Score >= input$minScore,\n        Score <= input$maxScore,\n        is.null(input$states) | State %in% input$states,\n        is.null(input$cities) | City %in% input$cities,\n        is.null(input$zipcodes) | Zipcode %in% input$zipcodes\n      ) %>%\n      mutate(Action = paste('<a class=\"go-map\" href=\"\" data-lat=\"', Lat, '\" data-long=\"', Long, '\" data-zip=\"', Zipcode, '\"><i class=\"fa fa-crosshairs\"></i></a>', sep=\"\"))\n    action <- DT::dataTableAjax(session, df)\n    \n    DT::datatable(df, options = list(ajax = list(url = action)), escape = FALSE)\n  })\n  \n  output$page3 <- renderUI({\n    inclRmd(\"./page3.Rmd\")\n  })\n  \n}",
+    "created" : 1481559745991.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2821142096",
+    "id" : "AB141B19",
+    "lastKnownWriteTime" : 1482250999,
+    "last_content_update" : 1482250999528,
+    "path" : "~/coursera/shinyproject/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
